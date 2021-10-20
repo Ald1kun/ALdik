@@ -1,0 +1,67 @@
+package com.company ;
+import java.util.Random;
+import java.util.Scanner;
+public class Main{
+
+    public static int[] bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+        return arr;
+    }
+
+
+    public static int searchBinary(int array[],int startIndex,int endIndex,int ElementToFind){
+        if (endIndex >= startIndex) {
+            int middleIndex = startIndex + (endIndex - startIndex) / 2;
+            if (array[middleIndex] == ElementToFind){
+                System.out.println(startIndex + ":startIndex  "+ endIndex+":endIndex  "+middleIndex+":middleIndex  " );
+                System.out.println("Element naiden i nahoditsia v iacheike :"+ middleIndex );
+                return middleIndex;
+            }
+            if (array[middleIndex] > ElementToFind) {
+                System.out.println(startIndex + ":startIndex  "+ endIndex+":endIndex  "+middleIndex+":middleIndex  " );
+                return searchBinary(array, startIndex, middleIndex - 1, ElementToFind);
+            } else{
+                System.out.println(startIndex + ":startIndex  "+ endIndex+":endIndex  "+middleIndex+":middleIndex  " );
+                return searchBinary(array, middleIndex + 1, endIndex, ElementToFind);
+            }
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Random r=new Random();
+        int n;
+        System.out.print("Massiv mushe sanyn engyz =");
+        n=sc.nextInt();
+        int a[]=new int[n];
+        //mas toltyru
+        System.out.print("[");
+        for (int i = 0; i <n ; i++) {
+            a[i]=r.nextInt(100)-50 ;
+            System.out.print(a[i]+",");
+        }
+        System.out.println("]");
+        bubbleSort(a);
+        System.out.print("[");
+        for (int i = 0; i <n ; i++) {
+            System.out.print(a[i]+",");
+        }
+        System.out.println("]");
+        System.out.println("VVedite chislo dlya poiska :");
+        int e = sc.nextInt();
+        bubbleSort(a);
+        searchBinary(a,0,n,e);
+    }
+
+
+
+}
