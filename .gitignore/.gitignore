@@ -1,0 +1,50 @@
+package com.company ;
+import java.sql.SQLOutput;
+import java.util.Random;
+import java.util.Scanner;
+public class Main{
+    public static int fibonacci(int seriesLength) {//Рекурсивная функция на проверку числа на числа фибоначчи
+        if (seriesLength == 1 || seriesLength == 2) {
+            return 1;
+        } else {
+            return fibonacci(seriesLength - 1) + fibonacci(seriesLength - 2);
+        }
+    }
+
+    public static void main(String args[]) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("VVedite kolichestvo");
+        int n = sc.nextInt();
+        int[] a;
+        a= new int[n];
+
+
+        System.out.print("Zapolnyaem massiv");
+        for (int j = 0; j < a.length; j++){
+            a[j]=sc.nextInt();
+        }
+
+        System.out.print("[");
+        for (int j = 0; j < a.length; j++){
+            System.out.print(a[j]+",");
+        }
+        System.out.println("]");
+
+
+        int i = 1;
+        for (int j = 0; j < a.length; j++){
+        while (i > 0) {
+            int fibnumber = fibonacci(i);//Найти 1е число фибоначчи
+            if (fibnumber !=a[j]) {//если оно не равно нашей цифре
+                if (fibnumber > a[j]) {//ТО оно или не фибаначи
+                    System.out.println("ЧИСЛО С ИНДЕКСОМ " + j + "-НЕ ПРИНАДЛЕЖИТ К ЧИСЛАМ ФИБОНАЧЧИ");
+                    break;
+                } else {
+                    i++;//или не тот член фибоначи поэтому мы увеличиваем диапазон
+                }
+            } else {//А если оно равно нашей цифре то
+                System.out.println("ЧИСЛО С ИНДЕКСОМ " + j+"-ПРИНАДЛЕЖИТ К ЧИСЛАМ ФИБОНАЧЧИ");//Это число очевидно фибоначчи
+                break;
+            }
+        }}}
+    }
