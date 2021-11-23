@@ -1,0 +1,67 @@
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+public class Krylo {
+    public String name;
+    public int count;
+    public Krylo(String name, int count) {
+        this.name = name;
+        this.count = count;
+    }
+    public void Letat() {
+        System.out.println( name + " letit po nebu ");
+    }
+    public void Saditsia() {
+        System.out.println( name + "saditsia s pomoshiu"+ count + "kruliev");
+    }
+    public void Pitatsia() {
+        System.out.println( name + " est edu ");
+    }
+    public void Ataka() {
+        System.out.println( name + " atakuet moguchimi kliuvami ");
+    }
+}
+
+package com.company;
+
+public class Kliuv {
+    public String name;
+    public int count;
+    public Kliuv(String name, int count) {
+        this.name = name;
+        this.count = count;
+    }
+    public void Pitatsia() {
+        System.out.println( name + " est edu ");
+    }
+    public void Ataka() {
+        System.out.println( name + " atakuet moguchimi kliuvami ");
+    }
+    public void Letat() {
+        System.out.println( name + " letit po nebu ");
+    }
+    public void Saditsia() {
+        System.out.println( name + "saditsia s pomoshiu"+ count + "kruliev");
+    }
+
+}
+
+
+
+    public static void main(String[] args) {
+//Создать объект класса Птица, используя классы Крылья, Клюв. Методы: летать, садиться, питаться, атаковать.
+        Krylo  pter = new Krylo("Sokol" ,2);
+        Kliuv pter2 = new Kliuv("Berkut", 2);
+        pter.Letat();
+        pter2.Letat();
+        pter.Ataka();
+        pter2.Ataka();
+        pter.Saditsia();
+        pter2.Saditsia();
+        pter.Pitatsia();
+        pter2.Pitatsia();
+    }}
+
+
+
